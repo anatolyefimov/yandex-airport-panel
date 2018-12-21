@@ -15,6 +15,16 @@ module.exports = {
     module : {
         rules: [
             {
+                test: /.js$/,
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
+                options: {
+                    emmitError: true,
+                    emitWarning: true,
+                    failOnError: true
+                }
+            },
+            {
                 test: /.pug$/,
                 loader: 'pug-loader'
             }
