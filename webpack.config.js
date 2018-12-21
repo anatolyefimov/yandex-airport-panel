@@ -2,11 +2,13 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
     entry: {
-        app: './src/test.js'
+        app: './src/test.js',
+        styles: './src/styles/main.css'
     },
     devServer: {
         contentBase: './dist',
@@ -14,6 +16,13 @@ module.exports = {
     },
     module : {
         rules: [
+            {
+                test: /.css$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" }
+                ]
+            },
             {
                 test: /.js$/,
                 exclude: /node_modules/,
@@ -29,6 +38,11 @@ module.exports = {
                 loader: 'pug-loader'
             }
         ]
+    },
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'src')
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
