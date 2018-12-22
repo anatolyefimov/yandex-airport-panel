@@ -6,7 +6,6 @@ export default class Store {
         this.mutations = {};
         this.state = {};
         this.events = new PubSub();
-        this.status = 'resting';
 
         if (params.hasOwnProperty('actions')) {
             this.actions = params.actions;
@@ -17,7 +16,19 @@ export default class Store {
         }
         
         let self = this;
-        self.state = params.state;
+        self.state = new Proxy((params.state || {}), {
+            set: function(state, key, value) {
+                if (key === 'event') {
+                    if (value !== state[key]) {
+                        self.events.publish('eventToggle');
+                    }
+                    state[key] = value;
+                }
+                
+                return true;
+            }
+        });
+        
 
     }
 

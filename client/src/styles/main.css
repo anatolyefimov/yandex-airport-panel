@@ -17,3 +17,7 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.event:hover {
+    background: yellow;
+}
