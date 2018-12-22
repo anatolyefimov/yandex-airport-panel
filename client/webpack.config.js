@@ -7,7 +7,7 @@ module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
     entry: {
-        app: './src/test.js',
+        app: './src/main.js',
         styles: './src/styles/main.css'
     },
     devServer: {
@@ -23,7 +23,7 @@ module.exports = {
                     { loader: "css-loader" }
                 ]
             },
-            {
+            /*{
                 test: /.js$/,
                 exclude: /node_modules/,
                 loader: 'eslint-loader',
@@ -32,7 +32,7 @@ module.exports = {
                     emitWarning: true,
                     failOnError: true
                 }
-            },
+            },*/
             {
                 test: /.pug$/,
                 loader: 'pug-loader'
