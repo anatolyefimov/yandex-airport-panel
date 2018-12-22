@@ -1,4 +1,5 @@
 import PubSub from '@/lib/PubSub';
+import getSchedule from '@/services/getSchedule';
 
 export default class Store {
     constructor(params) {
@@ -18,9 +19,16 @@ export default class Store {
         let self = this;
         self.state = new Proxy((params.state || {}), {
             set: function(state, key, value) {
+                console.log('state change')
                 if (key === 'event') {
                     if (value !== state[key]) {
-                        self.events.publish('eventToggle');
+                        getSchedule(value).then(
+                            function(result) {
+                                state['schedule'] = result.schedule;
+                                self.events.publish('eventToggle');
+                            }
+                        )
+                         
                     }
                     state[key] = value;
                 }
@@ -41,12 +49,12 @@ export default class Store {
             return false;
         }
         
-        console.groupCollapsed(`ACTION: ${actionKey}`);
+        console.log (`ACTION: ${actionKey}`);
 
         self.status = 'action';
         self.actions[actionKey](self, payload);
 
-        console.groupEnd();
+
 
         return true;
     }

@@ -7,13 +7,18 @@ export default class PubSub {
         if (!this.events.hasOwnProperty[event]) {
             this.events[event] = [];
         }
-        this.events.push(event);
+        console.log('event is subs!');
+        this.events[event].push(callback);
+        console.log(this.events[event]);
     }
 
     publish(event, data={}) {
-        if (!this.events.hasOwnProperty[event]) {
+        console.log(this.events[event])
+        /*if (!this.events.hasOwnProperty[event]) {
+            console.log('event is publish!');
             return [];
-        }
-        return this.events[event].map(callback => callback(data));
+        }*/
+        
+        this.events[event].forEach(callback => callback(data));
     }
 }

@@ -13,10 +13,10 @@ const url = 'https://api.rasp.yandex.net/v3.0/schedule/?';
 const apiKey = 'bfca7378-a8e8-4a15-b4e4-9c009b52f095';
 const station = 's9600213';
 
-app.get('/schedule', function(req, res) {
-    console.log('test')
+app.get('/schedule/:event', function(req, res) {
+    console.log(req.params.event)
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', url + 'apikey=' + apiKey + '&station=' + station);
+    xhr.open('GET', url + 'apikey=' + apiKey + '&station=' + station + '&event=' + req.params.event);
     xhr.send();
     xhr.onreadystatechange = function() { 
         if (xhr.readyState != 4) return;

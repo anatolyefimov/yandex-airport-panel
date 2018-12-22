@@ -7,3 +7,6 @@ document.querySelectorAll('.event').forEach(function(event, index) {
         store.dispatch('eventToggle', index);
     })
 });
+
+let list = new List()
+list.render();
