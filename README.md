@@ -18,4 +18,4 @@ $npm start
 
 ## Ticker
 
-Решение задачи в папке ticker.
+Решение задачи в папке [ticker](https://github.com/anatolyefimov/yandex-airport-panel/tree/master/ticker).
