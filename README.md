@@ -15,3 +15,7 @@ $cd ./client
 $npm i
 $npm start
 ```
+
+## Ticker
+
+Решение задачи в папке ticker.
