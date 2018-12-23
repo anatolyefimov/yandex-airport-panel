@@ -24,6 +24,7 @@ export default class Store {
                     if (value !== state[key]) {
                         getSchedule(value).then(
                             function(result) {
+                                state['now'] = result.now;
                                 state['schedule'] = result.data;
                                 self.events.publish('eventToggle');
                             }

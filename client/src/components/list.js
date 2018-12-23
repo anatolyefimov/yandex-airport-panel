@@ -43,10 +43,64 @@ export default class List extends Component {
             terminal.classList.add('schedule--terminal');
             terminal.textContent = obj.terminal;
 
+            let status = obj.status;
+            let timeBefore = document.createElement('div');
+            timeBefore.classList.add('schedule--time');
+            timeBefore.classList.add('delay-time');
+
+            if (store.state.now >= obj.departure_time.offblock) {
+                status = 'Departured';
+            }
+            
+            if (status === 'Delayed') {
+                timeBefore.textContent = (obj.departure_time.scheduled || obj.arrival_time.scheduled).slice(11, 16);
+                time.textContent = (obj.departure_time.estimated ||  obj.arrival_time.estimated).slice(11, 16);
+            } 
+            else if (status === '') {
+                let now = store.state.now;
+                if (store.state.event === 'departure') {
+                    let counterL = obj.counter.begin.plan || obj.counter.begin.actual;
+                    let counterR = obj.counter.end.plan || obj.counter.end.actual;
+                    let boardingL = obj.boarding.begin.plan || obj.boarding.begin.plan  ;
+                    let boardingR = obj.boarding.end.plan || obj.boarding.end.plan;
+                    if (now >= counterL && now <= counterR) {
+                        status = 'Check-in';
+                        time.textContent=obj.departure_time.estimated.slice(11, 16);
+                    }
+                    else if (now >= boardingL && now <= boardingR) {
+                        status = 'Boarding';
+                        time.textContent=obj.departure_time.estimated.slice(11, 16);
+                    }
+                    else  if (now > boardingR){
+                        status = 'Boarding completed';
+                        time.textContent=obj.departure_time.estimated.slice(11, 16);
+                    }
+                    else {
+                        time.textContent=obj.departure_time.scheduled.slice(11, 16);
+                    }
+                }
+                else {
+                    if (obj.arrival_time.estimated > obj.arrival_time.scheduled) {
+                        status = 'Delayed';
+                        timeBefore.textContent = obj.arrival_time.scheduled.slice(11, 16);
+                    }
+                    time.textContent = obj.arrival_time.estimated.slice(11, 16);
+                }
+            }
+
+            
+            let statusMark = document.createElement('div');
+            statusMark.classList.add('schedule--status');
+            statusMark.textContent = status;
+
+            console.log('test');
+            row.appendChild(timeBefore);
+            
             row.appendChild(time);
             row.appendChild(city);
             row.appendChild(numberFlight);
             row.appendChild(terminal);
+            row.appendChild(statusMark);
             this.element.appendChild(row);
             console.log('test');
         }

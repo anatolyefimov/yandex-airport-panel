@@ -87,6 +87,12 @@ input:focus {
     display: inline-block;
 }
 
+.delay-time {
+    font-size: 12px;
+    text-decoration: line-through;
+}
+
+
 .schedule--number-flight,
 .schedule--terminal {
     flex-shrink: 0;
@@ -96,6 +102,14 @@ input:focus {
     margin: 0 30px;
 }
 
+.schedule--status {
+    flex-shrink: 0;
+    font-size : 25px;
+    display: inline-flex;
+    width: 224px;
+    justify-content: center;
+    font-weight: normal;
+}
 .loading {
     transform: scale(0.25, 0.25);
     transform-origin: left top;
