@@ -1,54 +1,89 @@
-@media(max-width: 800px) {
+@media(max-width: 940px) {
     .event {
-        font-size: 50px;
+        font-size: 60px;
     }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 825px) {
+    input,
+    .delayed-only {
+        font-size: 18px;
+        border: 2px solid black;
+    
+    }
+    input {
+        border-right: 1px solid black;
+    }
+    .delayed-only {
+        line-height: 30px;
+        border-left: 1px solid black;
+    }
     .schedule--row {
         font-size: 20px;
     }
-
     .schedule--time {
-        font-size: 12px;
+        font-size: 13px;
     }
     .schedule--number-flight,
     .schedule--terminal,
-    input {
-        font-size: 15px;
-    }
-
-    .noexist {
-        font-size: 30px;
-    }
-
-    .loading {
-        transform: scale(0.10, 0.10);
-        left: calc(50% - 63px/2);
+    .schedule--status {
+        font-size: 17px;
     }
 }
 
-@media(max-width: 460px) {
-    .events {
-        padding: 30px 0;
+@media(max-width: 660px) {
+    .schedule--status {
+        width: 140px;
+    }
+    .schedule--row {
+        line-height: 50px;
+    }
+    .delayed-only {
+        width: 30%;
     }
 
+    form {
+        width: 70%;
+    }
+    .schedule--row {
+        font-size: 15px;
+    }
+    
+    .schedule--number-flight,
+    .schedule--terminal,
+    .schedule--status {
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 525px) {
+    .schedule--row,
+    .schedule--number-flight,
+    .schedule--terminal,
+    .schedule--status {
+        font-size: 12px;
+    }
+
+    .schedule--row:hover {
+        box-shadow: none;
+    }
     .event {
         font-size: 30px;
     }
-
-    .schedule--row {
-        font-size: 15px;
-        line-height: 50px;
+    .events {
+        padding: 30px 0;
+    }
+    .schedule--status {
+        width: 110px;
+    }
+    .delayed-only {
+        width: 40%;
     }
 
-    .schedule--time {
-        font-size: 12px;
+    form {
+        width: 60%;
     }
-    .schedule--number-flight,
-    .schedule--terminal {
-        font-size: 15px;
-        margin : 7px;
+    body {
+        padding: 0;
     }
-
 }

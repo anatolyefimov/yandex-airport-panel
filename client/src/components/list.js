@@ -55,6 +55,7 @@ export default class List extends Component {
             if (status === 'Delayed') {
                 timeBefore.textContent = (obj.departure_time.scheduled || obj.arrival_time.scheduled).slice(11, 16);
                 time.textContent = (obj.departure_time.estimated ||  obj.arrival_time.estimated).slice(11, 16);
+                time.style.color = 'red';
             } 
             else if (status === '') {
                 let now = store.state.now;
@@ -85,11 +86,26 @@ export default class List extends Component {
                         timeBefore.textContent = obj.arrival_time.scheduled.slice(11, 16);
                     }
                     time.textContent = obj.arrival_time.estimated.slice(11, 16);
+                    time.style.color = 'red';
                 }
             }
 
             
+
             let statusMark = document.createElement('div');
+
+            if (status === 'Departured' || status === 'Boarding completed' || status === 'Arrived') {
+                statusMark.style.color = 'gray';
+            }
+            else if (status === 'Delayed' || status === 'Canceled') {
+                statusMark.style.color = 'red';
+            }
+            else if (status === 'Check-in') {
+                statusMark.style.color = 'yellow';
+            }
+            else if (status === 'Boarding') {
+                statusMark.style.color = 'green';
+            }
             statusMark.classList.add('schedule--status');
             statusMark.textContent = status;
 

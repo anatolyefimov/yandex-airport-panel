@@ -10,8 +10,10 @@ body
     .events
         .event Departure
         .event Arrival
-    form
-        input(type='text' placeholder='Search by number')
+    .container(style ='display: flex')
+        form
+            input(type='text' placeholder='Search by number')
+        .delayed-only Delayed Only
     .schedule 
     .noexist No flights with this number.
     img(class='loading' src='assets/loading.gif')
