@@ -4,6 +4,6 @@ let station = 's9600213';
 
 export default async function getSchedule(event) {
     let schedule = await fetch('http://localhost:8081/schedule/' + event, {mode: 'cors'});
-    schedule  = await schedule.json()
+    schedule  = await schedule.json();
     return schedule;
 }

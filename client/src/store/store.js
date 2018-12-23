@@ -19,7 +19,7 @@ export default class Store {
         let self = this;
         self.state = new Proxy((params.state || {}), {
             set: function(state, key, value) {
-                console.log('state change')
+                console.log('state change');
                 if (key === 'event') {
                     if (value !== state[key]) {
                         getSchedule(value).then(
@@ -27,7 +27,7 @@ export default class Store {
                                 state['schedule'] = result.schedule;
                                 self.events.publish('eventToggle');
                             }
-                        )
+                        );
                          
                     }
                     state[key] = value;

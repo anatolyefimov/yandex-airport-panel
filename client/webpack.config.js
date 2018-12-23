@@ -1,29 +1,27 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
     entry: {
         app: './src/main.js',
-        styles: './src/styles/main.css'
     },
     devServer: {
-        contentBase: './dist',
+        contentBase: ['./dist', './src/public'],
+
         hot: true
     },
     module : {
         rules: [
             {
-                test: /.css$/,
-                use: [
-                    { loader: "style-loader" },
-                    { loader: "css-loader" }
-                ]
+                test: /.pug$/,
+                loader: 'pug-loader'
             },
-            /*{
+         
+            {
                 test: /.js$/,
                 exclude: /node_modules/,
                 loader: 'eslint-loader',
@@ -32,11 +30,8 @@ module.exports = {
                     emitWarning: true,
                     failOnError: true
                 }
-            },*/
-            {
-                test: /.pug$/,
-                loader: 'pug-loader'
-            }
+            },
+          
         ]
     },
     resolve: {
@@ -48,7 +43,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.pug'
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
     ],
     output: {
         filename: '[name].bundle.js',

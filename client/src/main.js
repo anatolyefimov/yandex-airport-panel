@@ -5,8 +5,9 @@ import store from '@/store/index';
 document.querySelectorAll('.event').forEach(function(event, index) {
     event.addEventListener('click', function() {
         store.dispatch('eventToggle', index);
-    })
+    });
 });
 
-let list = new List()
+store.dispatch('eventToggle', 0);
+let list = new List();
 list.render();

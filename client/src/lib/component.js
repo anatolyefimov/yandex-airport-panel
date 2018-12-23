@@ -5,7 +5,7 @@ export default class Component {
         this.render = this.render || function() {};
 
         props.store.events.subscribe('eventToggle', () => self.render());
-        console.log(props.store.events.events)
+        console.log(props.store.events.events);
         if(props.hasOwnProperty('element')) {
             this.element = props.element;
         }

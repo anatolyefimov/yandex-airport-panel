@@ -3,4 +3,4 @@ export default {
         console.log('action eventToggle is dipatch');
         context.commit('eventToggle', index);
     }
-}
+};

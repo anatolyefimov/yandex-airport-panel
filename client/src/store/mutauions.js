@@ -4,4 +4,4 @@ export default {
         state['event'] = (index === 0) ? 'departure' : 'arrival';
         console.log(state);
     }
-}
+};

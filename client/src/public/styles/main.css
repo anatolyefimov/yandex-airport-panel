@@ -1,0 +1,75 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto
+
+}
+
+.events {
+    display: flex;
+    flex-direction: row;
+}
+
+.event {
+    flex-basis: 50%;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    transition: color 0.5s ease-out;
+}
+
+.event:hover,
+.schedule--row:hover{
+    color:#c00;
+}
+
+.schedule--row:hover{
+    box-shadow: 5px 5px 0 #c00;
+}
+
+.schedule {
+    padding: 0 40px;
+    background: white;
+}
+
+.schedule--row {
+    border-bottom: solid black 1px;
+    width: 100%;
+    line-height: 80px; 
+    font-size: 30px;
+    display: flex;
+    font-weight: bold;
+}
+
+
+.schedule--city {
+    flex-grow: 1;
+}
+
+.schedule--time {
+    flex-shrink: 0;
+    font-size: 20px;
+    margin-right: 20px;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.schedule--number-flight,
+.schedule--terminal {
+    flex-shrink: 0;
+    font-size : 25px;
+    display: inline-block;
+    font-weight: normal;
+    margin: 0 30px;
+}
+
+
+.loading {
+    transform: scale(0.25, 0.25);
+    transform-origin: left top;
+    position: absolute;
+    top : calc(50% - 160px/2);
+    left: calc(50% - 156px/2);
+    z-index: -1;
+}

@@ -1,5 +1,5 @@
 export default {
-    event: 'departure',
+    event: 'x',
     filter: 'all',
-    schedule: [ 's', 'tu', 'b']
+    schedule: []
 };
