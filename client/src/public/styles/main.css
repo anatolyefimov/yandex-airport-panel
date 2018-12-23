@@ -2,13 +2,41 @@ html,
 body {
     height: 100%;
     margin: 0;
-    font-family: Roboto
+    font-family: Roboto;
+    
+}
 
+body {
+    padding : 0 40px;
+}
+
+form {
+    margin: 0;
+}
+
+input {
+    width: 100%;
+    border: 0;
+    padding: 5px 20px;
+    font-size: 25px;
+    border-bottom: 3px solid black;
+    transition: border-bottom-color 0.5s;
+}
+
+
+input:focus {
+    border-bottom-color: #c00;
+}
+
+:focus::placeholder {
+    color: #c00;
 }
 
 .events {
     display: flex;
     flex-direction: row;
+    padding: 50px 0;
+    background-color: white;
 }
 
 .event {
@@ -17,6 +45,11 @@ body {
     display: flex;
     justify-content: center;
     transition: color 0.5s ease-out;
+    cursor: pointer;
+}
+
+.event.current {
+    color: #c00;
 }
 
 .event:hover,
@@ -29,7 +62,6 @@ body {
 }
 
 .schedule {
-    padding: 0 40px;
     background: white;
 }
 
@@ -64,7 +96,6 @@ body {
     margin: 0 30px;
 }
 
-
 .loading {
     transform: scale(0.25, 0.25);
     transform-origin: left top;
@@ -72,4 +103,13 @@ body {
     top : calc(50% - 160px/2);
     left: calc(50% - 156px/2);
     z-index: -1;
+}
+
+.noexist {
+    font-size: 60px;
+    width: 100%;
+    text-align: center;
+    color:#c00;
+    margin-top: 40px;
+    display: none;
 }

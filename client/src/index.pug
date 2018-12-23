@@ -4,10 +4,14 @@ head
     link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
     link(href="styles/main.css" rel="stylesheet")
     link(href="assets/favicon.ico" rel="icon")
+    meta(name='viewport' content='width=device-width, initial-scale-1.0')
 body
     .events
         .event Departure
         .event Arrival
+    form
+        input(type='text' placeholder='Search by number')
     .schedule 
+    .noexist No flights with this number.
     img(class='loading' src='assets/loading.gif')
-        
+    
