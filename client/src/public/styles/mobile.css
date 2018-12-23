@@ -1,0 +1,54 @@
+@media(max-width: 800px) {
+    .event {
+        font-size: 50px;
+    }
+}
+
+@media(max-width: 600px) {
+    .schedule--row {
+        font-size: 20px;
+    }
+
+    .schedule--time {
+        font-size: 12px;
+    }
+    .schedule--number-flight,
+    .schedule--terminal,
+    input {
+        font-size: 15px;
+    }
+
+    .noexist {
+        font-size: 30px;
+    }
+
+    .loading {
+        transform: scale(0.10, 0.10);
+        left: calc(50% - 63px/2);
+    }
+}
+
+@media(max-width: 460px) {
+    .events {
+        padding: 30px 0;
+    }
+
+    .event {
+        font-size: 30px;
+    }
+
+    .schedule--row {
+        font-size: 15px;
+        line-height: 50px;
+    }
+
+    .schedule--time {
+        font-size: 12px;
+    }
+    .schedule--number-flight,
+    .schedule--terminal {
+        font-size: 15px;
+        margin : 7px;
+    }
+
+}
