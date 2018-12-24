@@ -1,4 +1,4 @@
-import PubSub from '@/lib/PubSub';
+import PubSub from '@/lib/pubsub';
 import getSchedule from '@/services/getSchedule';
 
 export default class Store {
